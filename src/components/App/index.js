@@ -43,7 +43,8 @@ class App extends Component {
                                         return (<div>
                                             {Object.keys(localStorage).length ?
                                                 <WorkoutKeyBtn/> : null}
-                                            <NavLink to={'/add-name'}><Button color="success">Dodaj
+                                            <NavLink to={'/add-name'}><Button
+                                                className={'addTraining'}>Dodaj
                                                 trening</Button></NavLink>
                                         </div>)
                                     }}/>

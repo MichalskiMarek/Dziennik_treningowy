@@ -64,7 +64,7 @@ export default class AddWorkout extends Component {
                                placeholder="Wpisz ciężar (kg)"/>
                         <Button style={{
                             marginTop: '10px'
-                        }} color={'success'}>Dodaj</Button>
+                        }} className={'addExercise'}>Dodaj ćwiczenie</Button>
                     </FormGroup>
                 </Form>
                 <Workout {...this.props} localStorageChange={this.props.localStorageChange} workoutArr={this.state.workoutArr} deleteExercise={this.deleteExercise} name={this.props.name}/>

@@ -6,15 +6,15 @@ import {NavLink} from "react-router-dom";
 export default class AddName extends Component {
     render() {
         return (
-                <Form className={'addNameParent'}>
-                    <FormGroup className={'addName'}>
-                        <Label for="workout"/>
-                        <Input type="text" name="name" id="workout"
-                               placeholder="Wpisz nazwę treningu" onChange={this.props.nameChangeHandler}/>
-                        <NavLink to={'/add-workout'}><Button color={'success'}>Dalej</Button></NavLink>
-                        <NavLink to={'/'}><Button color={'primary'}>Wstecz</Button></NavLink>
-                    </FormGroup>
-                </Form>
+            <Form className={'addNameParent'}>
+                <FormGroup className={'addName'}>
+                    <Label for="workout"/>
+                    <Input className={'addNameInput'} type="text" name="name" id="workout"
+                           placeholder="Wpisz nazwę treningu" onChange={this.props.nameChangeHandler}/>
+                    <NavLink to={'/add-workout'}><Button className={'nextBtn'}>Dalej</Button></NavLink>
+                    <NavLink to={'/'}><Button className={'backBtn'}>Wstecz</Button></NavLink>
+                </FormGroup>
+            </Form>
         );
     }
 }

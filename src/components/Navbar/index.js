@@ -23,7 +23,7 @@ export default class NavbarMain extends React.Component {
     render() {
         return (
             <div>
-                <Navbar className={'navbar'} light>
+                <Navbar className={'navbar'}>
                     <NavbarBrand href="/">WTF</NavbarBrand>
                 </Navbar>
             </div>

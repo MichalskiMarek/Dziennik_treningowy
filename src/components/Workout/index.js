@@ -28,7 +28,7 @@ export default class Workout extends Component {
         });
         return (
             <div>
-                <Table>
+                <Table className={'workoutTable'}>
                     <thead>
                     <tr>
                         <th>#</th>
@@ -42,11 +42,11 @@ export default class Workout extends Component {
                     {exercise}
                     </tbody>
                 </Table>
-                {window.location.href.indexOf("add-workout") > -1 ? <NavLink to={'/'}><Button color={'primary'}
-                                                                                              onClick={() => this.saveToLocal()}>Zapisz</Button></NavLink> :
-                    <NavLink to={'/'}><Button color={'primary'}>Wstecz</Button></NavLink>}
-                <NavLink to={'/'}> <Button color={'secondary'}
-                                          onClick={this.deleteFromLocal}>Usuń</Button></NavLink>
+                {window.location.href.indexOf("add-workout") > -1 ? <NavLink to={'/'}><Button className={'saveWorkout'}
+                                                                                              onClick={() => this.saveToLocal()}>Zapisz trening</Button></NavLink> :
+                    <NavLink to={'/'}><Button className={'workoutBack'}>Wstecz</Button></NavLink>}
+                <NavLink to={'/'}> <Button className={'workoutDel'}
+                                           onClick={this.deleteFromLocal}>Usuń</Button></NavLink>
             </div>
         );
     }
