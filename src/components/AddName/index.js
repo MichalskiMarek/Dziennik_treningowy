@@ -12,6 +12,7 @@ export default class AddName extends Component {
                         <Input type="text" name="name" id="workout"
                                placeholder="wpisz nazwę treningu" onChange={this.props.nameChangeHandler}/>
                         <NavLink to={'/add-workout'}><Button color={'success'}>Dalej</Button></NavLink>
+                        <NavLink to={'/'}><Button color={'primary'}>Wstecz</Button></NavLink>
                     </FormGroup>
                 </Form>
         );

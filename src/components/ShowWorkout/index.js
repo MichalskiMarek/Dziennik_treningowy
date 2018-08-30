@@ -7,7 +7,7 @@ export default class ShowWorkout extends Component {
     render() {
         return (
             <div>
-                <Workout workoutArr={JSON.parse(localStorage.getItem(this.props.match.params.workoutkey))}/>
+                <Workout {...this.props} localStorageChange={this.props.localStorageChange} workoutArr={JSON.parse(localStorage.getItem(this.props.match.params.workoutkey))}/>
             </div>
         );
     }

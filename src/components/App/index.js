@@ -6,12 +6,14 @@ import AddWorkout from '../AddWorkout';
 import AddName from '../AddName';
 import {Button, Container, Row, Col} from "reactstrap";
 import ShowWorkout from "../ShowWorkout";
+import WorkoutKeyBtn from "../WorkoutKeyBtn";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: 'Trening 1'
+            name: 'Trening 1',
+            localStorageUpdated: 0
         }
     }
 
@@ -21,10 +23,11 @@ class App extends Component {
         })
     };
 
+    localStorageChange = () => {
+        this.setState({localStorageUpdated: this.state.localStorageUpdated + 1})
+    };
+
     render() {
-        const keysArr = Object.keys(localStorage).map((key, index) => {
-            return <NavLink key={index} to={`/workout/${key}`}><Button style={{margin:'5px 0'}} color="warning">{key}</Button></NavLink>
-        });
         return (
             <Container>
                 <BrowserRouter>
@@ -39,7 +42,7 @@ class App extends Component {
                                 <Route exact path={'/'} render={() => {
                                     return (<div>
                                         {Object.keys(localStorage).length ?
-                                            <div className={'workoutBtn'}>{keysArr}</div> : null}
+                                            <WorkoutKeyBtn/> : null}
                                         <NavLink to={'/add-name'}><Button color="success">Dodaj
                                             trening</Button></NavLink>
                                     </div>)
@@ -59,15 +62,18 @@ class App extends Component {
                                     <Route
                                         path={'/workout/:workoutkey'}
                                         render={(props) => {
-                                            return <ShowWorkout {...props}/>
+                                            return <ShowWorkout localStorageChange={this.localStorageChange} {...props}/>
                                         }}/>
                                 </Col>
                             </Row>
                         </Container>
                         <Row>
                             <Col>
-                                <Route path={'/add-workout'} render={() => {
-                                    return <AddWorkout name={this.state.name}/>
+                                <Route path={'/add-workout'} render={(props) => {
+                                    return <AddWorkout localStorageChange={this.localStorageChange}
+                                                       name={this.state.name}
+                                                       {...props}
+                                    />
                                 }}/>
                             </Col>
                         </Row>

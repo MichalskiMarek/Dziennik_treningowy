@@ -25,7 +25,7 @@ export default class NavbarMain extends React.Component {
             <div style={{
                 marginBottom: '40px'
             }}>
-                <Navbar color="light" light expand="md">
+                <Navbar color="info" light expand="md">
                     <NavbarBrand href="/">WTF</NavbarBrand>
 
                 </Navbar>

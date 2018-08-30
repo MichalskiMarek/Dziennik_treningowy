@@ -57,13 +57,13 @@ export default class AddWorkout extends Component {
                                placeholder="wpisz liczbę powtórzeń"/>
                         <Label for="weight"/>
                         <Input type="number" name="weight" onChange={this.changeHandler} id="weight"
-                               placeholder="wpisz ciężar"/>
+                               placeholder="wpisz ciężar (kg)"/>
                         <Button style={{
                             marginTop: '10px'
                         }} color={'success'}>Dodaj</Button>
                     </FormGroup>
                 </Form>
-                <Workout workoutArr={this.state.workoutArr} deleteExercise={this.deleteExercise} name={this.props.name}/>
+                <Workout {...this.props} localStorageChange={this.props.localStorageChange} workoutArr={this.state.workoutArr} deleteExercise={this.deleteExercise} name={this.props.name}/>
             </div>
         );
     }
