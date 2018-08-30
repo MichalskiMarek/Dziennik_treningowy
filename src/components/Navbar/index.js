@@ -22,12 +22,9 @@ export default class NavbarMain extends React.Component {
 
     render() {
         return (
-            <div style={{
-                marginBottom: '40px'
-            }}>
-                <Navbar color="info" light expand="md">
+            <div>
+                <Navbar className={'navbar'} light>
                     <NavbarBrand href="/">WTF</NavbarBrand>
-
                 </Navbar>
             </div>
         );

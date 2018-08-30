@@ -6,7 +6,6 @@ import {NavLink} from 'react-router-dom';
 export default class Workout extends Component {
 
     saveToLocal = () => {
-        console.log('save ' + this.props.name);
         localStorage.setItem(this.props.name, JSON.stringify(this.props.workoutArr));
         this.props.localStorageChange();
     };
