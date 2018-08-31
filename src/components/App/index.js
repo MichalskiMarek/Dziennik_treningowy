@@ -4,16 +4,15 @@ import NavbarMain from "../Navbar";
 import {NavLink, BrowserRouter, Route} from 'react-router-dom';
 import AddWorkout from '../AddWorkout';
 import AddName from '../AddName';
-import {Button, Container, Row, Col} from "reactstrap";
+import {Button, Container} from "reactstrap";
 import ShowWorkout from "../ShowWorkout";
 import WorkoutKeyBtn from "../WorkoutKeyBtn";
-// import Image from '../../img/bg1.jpg';
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            name: 'Trening 1',
+            name: '',
             localStorageUpdated: 0
         }
     }
@@ -37,54 +36,41 @@ class App extends Component {
                 <Container>
                     <BrowserRouter>
                         <div>
-                            <Row>
-                                <Col className="workoutBtn">
-                                    <Route exact path={'/'} render={() => {
-                                        return (<div>
-                                            {Object.keys(localStorage).length ?
-                                                <WorkoutKeyBtn/> : null}
-                                            <NavLink to={'/add-name'}><Button
-                                                className={'addTraining'}>Dodaj
-                                                trening</Button></NavLink>
-                                        </div>)
+                            <div className="workoutBtn">
+                                <Route exact path={'/'} render={() => {
+                                    return (<div>
+                                        {Object.keys(localStorage).length ?
+                                            <WorkoutKeyBtn/> : null}
+                                        <NavLink to={'/add-name'}><Button
+                                            className={'addTraining'}>Dodaj
+                                            trening</Button></NavLink>
+                                    </div>)
+                                }}/>
+                                <Route path={'/add-name'} render={() => {
+                                    return <AddName name={this.state.name}
+                                                    nameChangeHandler={this.nameChangeHandler}/>
+                                }}/>
+                                <Route
+                                    path={'/workout/:workoutkey'}
+                                    render={(props) => {
+                                        return <ShowWorkout
+                                            localStorageChange={this.localStorageChange}
+                                            {...props}/>
                                     }}/>
-                                </Col>
-                            </Row>
-                            <Row>
-                                <Col>
-                                    <Route path={'/add-name'} render={() => {
-                                        return <AddName nameChangeHandler={this.nameChangeHandler}/>
-                                    }}/>
-                                </Col>
-                            </Row>
-                            <Container>
-                                <Row>
-                                    <Col>
-                                        <Route
-                                            path={'/workout/:workoutkey'}
-                                            render={(props) => {
-                                                return <ShowWorkout
-                                                    localStorageChange={this.localStorageChange}
-                                                    {...props}/>
-                                            }}/>
-                                    </Col>
-                                </Row>
-                            </Container>
-                            <Row>
-                                <Col>
-                                    <Route path={'/add-workout'} render={(props) => {
-                                        return <AddWorkout localStorageChange={this.localStorageChange}
-                                                           name={this.state.name}
-                                                           {...props}
-                                        />
-                                    }}/>
-                                </Col>
-                            </Row>
+                                <Route path={'/add-workout'} render={(props) => {
+                                    return <AddWorkout localStorageChange={this.localStorageChange}
+                                                       name={this.state.name}
+                                                       {...props}
+                                    />
+                                }}/>
+                            </div>
                         </div>
                     </BrowserRouter>
                 </Container>
+                <footer className={'footerMain'}>
+                    <div>&copy; Copyright 2018 WTF. All rights reserved</div>
+                </footer>
             </div>
-
         );
     }
 }

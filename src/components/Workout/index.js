@@ -1,7 +1,7 @@
 import {Component} from "react";
 import React from "react";
 import {Table, Button} from "reactstrap";
-import {NavLink} from 'react-router-dom';
+import {NavLink, Redirect} from 'react-router-dom';
 
 export default class Workout extends Component {
 
@@ -15,7 +15,7 @@ export default class Workout extends Component {
     };
 
     render() {
-        const exercise = this.props.workoutArr.map((data, index) => {
+        const exercise = this.props.workoutArr ? this.props.workoutArr.map((data, index) => {
             return <tr key={index}>
                 <td>{index + 1}</td>
                 <td>{data.exercise}</td>
@@ -25,7 +25,7 @@ export default class Workout extends Component {
                 {window.location.href.indexOf("add-workout") > -1 ?
                     <td><Button onClick={() => this.props.deleteExercise(index)}>Usuń</Button></td> : null}
             </tr>
-        });
+        }) : <Redirect to={'/'}/>;
         return (
             <div>
                 <Table className={'workoutTable'}>

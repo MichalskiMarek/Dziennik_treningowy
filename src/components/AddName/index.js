@@ -11,7 +11,7 @@ export default class AddName extends Component {
                     <Label for="workout"/>
                     <Input className={'addNameInput'} type="text" name="name" id="workout"
                            placeholder="Wpisz nazwę treningu" onChange={this.props.nameChangeHandler}/>
-                    <NavLink to={'/add-workout'}><Button className={'nextBtn'}>Dalej</Button></NavLink>
+                   { this.props.name.length>0 ? <NavLink to={'/add-workout'}><Button className={'nextBtn'}>Dalej</Button></NavLink> : null}
                     <NavLink to={'/'}><Button className={'backBtn'}>Wstecz</Button></NavLink>
                 </FormGroup>
             </Form>

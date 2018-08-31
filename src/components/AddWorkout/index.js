@@ -51,16 +51,16 @@ export default class AddWorkout extends Component {
                 <Form onSubmit={this.submitHandler} className={'addWorkoutParent'}>
                     <FormGroup className={'addWorkout'}>
                         <Label for="exercise"/>
-                        <Input value={this.state.exercise} type="text" name="exercise" onChange={this.changeHandler} id="exercise"
+                        <Input className={'addNameInput'} value={this.state.exercise} type="text" name="exercise" onChange={this.changeHandler} id="exercise"
                                placeholder="Wpisz nazwę ćwiczenia"/>
                         <Label for="series"/>
-                        <Input value={this.state.series} type="number" name="series" onChange={this.changeHandler} id="series"
+                        <Input className={'addNameInput'} value={this.state.series} type="number" name="series" onChange={this.changeHandler} id="series"
                                placeholder="Wpisz liczbę serii"/>
                         <Label for="reps"/>
-                        <Input value={this.state.reps} type="number" name="reps" onChange={this.changeHandler} id="reps"
+                        <Input className={'addNameInput'} value={this.state.reps} type="number" name="reps" onChange={this.changeHandler} id="reps"
                                placeholder="Wpisz liczbę powtórzeń"/>
                         <Label for="weight"/>
-                        <Input value={this.state.weight } step='0.25' type="number" name="weight" onChange={this.changeHandler} id="weight"
+                        <Input className={'addNameInput'} value={this.state.weight } step='0.25' type="number" name="weight" onChange={this.changeHandler} id="weight"
                                placeholder="Wpisz ciężar (kg)"/>
                         <Button style={{
                             marginTop: '10px'

@@ -1,5 +1,5 @@
 body {
-  margin: 0;
+  margin: 0 0 60px 0 !important;
   padding: 0;
   font-family: sans-serif;
   background-image: linear-gradient(
@@ -10,6 +10,7 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
+  position: relative;
 }
 
 .addWorkout,
@@ -74,6 +75,7 @@ body {
 .form-control {
   margin-right: 10px;
 }
+
 .saveWorkout,
 .addTraining,
 .TrainingBtn,
@@ -106,3 +108,17 @@ body {
   width: 150px;
 }
 
+.footerMain {
+  margin-top: 20px;
+  color: #E2E2E2;
+  background-color: #2e2e2e;
+  width: 100%;
+  height: 40px;
+  position: fixed;
+  bottom: 0;
+  font-size: 12px;
+  //border-top: 2px solid #E82D0C;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
