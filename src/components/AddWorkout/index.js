@@ -62,9 +62,11 @@ export default class AddWorkout extends Component {
                         <Label for="weight"/>
                         <Input className={'addNameInput'} value={this.state.weight } step='0.25' type="number" name="weight" onChange={this.changeHandler} id="weight"
                                placeholder="Wpisz ciężar (kg)"/>
-                        <Button style={{
+                  {this.state.exercise.length >0 && this.state.series.length >0 && this.state.reps.length>0 && this.state.weight >0? <Button disabled={false} style={{
                             marginTop: '10px'
-                        }} className={'addExercise'}>Dodaj ćwiczenie</Button>
+                        }} className={'addExercise'}>Dodaj ćwiczenie</Button> : <Button disabled={true} style={{
+                            marginTop: '10px'
+                        }} className={'addExercise'}>Dodaj ćwiczenie</Button>}
                     </FormGroup>
                 </Form>
                 <Workout {...this.props} localStorageChange={this.props.localStorageChange} workoutArr={this.state.workoutArr} deleteExercise={this.deleteExercise} name={this.props.name}/>

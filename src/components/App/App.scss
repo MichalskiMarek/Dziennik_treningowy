@@ -66,9 +66,10 @@ body {
   color: #E2E2E2;
   font-weight: bold;
   transition: all linear 0.3s;
+  font-size: 24px !important;
 
   &:hover {
-    color: #CFCFCF;
+    color: #c0c0c0;
   }
 }
 
@@ -117,7 +118,6 @@ body {
   position: fixed;
   bottom: 0;
   font-size: 12px;
-  //border-top: 2px solid #E82D0C;
   display: flex;
   align-items: center;
   justify-content: center;

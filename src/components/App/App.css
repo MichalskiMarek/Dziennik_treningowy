@@ -52,9 +52,10 @@ body {
 .navbar-brand {
   color: #E2E2E2;
   font-weight: bold;
-  transition: all linear 0.3s; }
+  transition: all linear 0.3s;
+  font-size: 24px !important; }
   .navbar-brand:hover {
-    color: #CFCFCF; }
+    color: #c0c0c0; }
 
 .form-control {
   margin-right: 10px; }
